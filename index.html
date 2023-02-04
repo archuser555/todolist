@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./main.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <title>Draid Todo Things</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="container">
+        <h1>Draid Todo Things</h1>
+        <input type="text" v-model="newTask" @input="updateMessage" placeholder="Add a task..." />
+        <input v-on:click="addtask()" type="submit" value="Add" />
+        <p></p>
+        <ul class="todo-list">
+          <li v-for="(task, index) in tasks" :key="task.id">
+            {{ task.title }}
+            <button @click="deleteTask(index)" class="delete-btn">Delete</button>
+          </li>
+        </ul>
+      </div>
+      <script>
+        const mountedApp = app.mount("#app")
+      </script>
+    </div>
+  </body>
+</html>
